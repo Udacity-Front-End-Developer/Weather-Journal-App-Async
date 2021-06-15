@@ -24,8 +24,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
 app.get('/all', (req, res) => {
-	console.log('projectData');
-	// res.send(projectData);
 	res.send(projectData);
+});
+
+app.post('/all', (req, res) => {
+	// Adds incoming data to projectData.
 });
 app.listen(_PORT, () => console.log(`Serving is live on port ${_PORT}`));

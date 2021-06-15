@@ -2,12 +2,67 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Weather journal</title>
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Inconsolata:wght@300;400&family=Montserrat:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<h1>Hello weather</h1>
+		<span class="cloud">
+			<img src="cloud.png" alt="" />
+		</span>
+		<main class="container">
+			<section class="container__col1">
+				<h1 class="title">
+					The<br />
+					simple<br />
+					<span>weather</span><br />
+					journal<br />
+					app
+				</h1>
+			</section>
+
+			<section class="container__col2">
+				<form action="" class="form">
+					<label class="form__label" for="zip"><span>Zip</span> code:</label>
+					<input
+						class="input"
+						id="zip"
+						name="zip"
+						type="text"
+						placeholder="Enter zip code here..."
+					/>
+					<label class="form__label" for="feelings" type="text"
+						>Your <span>feelings</span> today</label
+					>
+					<textarea
+						class="input"
+						id="feelings"
+						name="feelings"
+						type="text"
+						placeholder="How are you feeling..."
+					></textarea>
+					<button class="form__btn" id="generate" type="submit">
+						Generate
+					</button>
+				</form>
+
+				<div class="holder entry">
+					<div class="title">Most Recent Entry:</div>
+					<div id="entryHolder">
+						<div id="date"></div>
+						<div id="temp"></div>
+						<div id="content"></div>
+					</div>
+				</div>
+			</section>
+		</main>
+
 		<script src="app.js"></script>
 	</body>
 </html>

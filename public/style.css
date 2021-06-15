@@ -1,0 +1,154 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Custom properties */
+:root {
+	--light-clr: #dfdfdf;
+	--orange-clr: #ed6930;
+	--orange-soft: rgba(248, 195, 173, 0.22);
+	--bg-clr: #0d141c;
+}
+
+body {
+	background-color: var(--bg-clr);
+	font-size: 16px;
+	height: 100vh;
+}
+
+.cloud img {
+	width: 50%;
+	opacity: 2%;
+	bottom: 10%;
+	left: 5%;
+	position: absolute;
+	/* background-image: url(../design/cloud.png);
+	background-size: cover;
+	background-color: #ed6930;
+	position: absolute; */
+}
+
+.container {
+	width: 90vw;
+	/* height: ; */
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	/* margin-top: ; */
+}
+
+.container__col1 {
+	width: 50%;
+	max-width: 20em;
+	padding-top: 5rem;
+	padding-bottom: 2em;
+	margin-left: 3em;
+}
+
+.container__col1 .title {
+	color: var(--light-clr);
+	font-family: 'Roboto Mono';
+	font-weight: 700;
+	font-size: 4em;
+	position: relative;
+}
+
+.container__col1 .title::before {
+	content: '';
+	position: absolute;
+	display: block;
+	height: 100%;
+	width: 0.3em;
+	top: 0;
+	left: -0.5em;
+	background-color: var(--orange-clr);
+}
+
+.container__col1 .title span {
+	color: var(--orange-clr);
+}
+
+.container__col2 {
+	display: flex;
+	flex-direction: column;
+	width: 30%;
+	padding-top: 5rem;
+	padding-bottom: 2em;
+	margin-right: 2em;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.input {
+	resize: none;
+	border: 1px solid var(--light-clr);
+	background-color: transparent;
+	font-family: 'Inconsolata';
+	font-size: 1.5rem;
+	font-weight: 300;
+	white-space: nowrap;
+	padding: 0.8em;
+	color: #fff;
+	margin-bottom: 1rem;
+	width: 100%;
+}
+
+.input:focus-visible {
+	border: none;
+	outline-style: solid;
+	outline-width: 2px;
+	outline-color: var(--orange-clr);
+}
+
+.input:focus-visible::placeholder {
+	color: #fff;
+}
+
+.input::placeholder {
+	color: var(--orange-soft);
+}
+
+.form__label {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	font-size: 2rem;
+	color: #fff;
+	margin-bottom: 0.8em;
+	white-space: nowrap;
+}
+
+.form__label span {
+	color: var(--orange-clr);
+}
+
+.form #zip {
+	height: 2.375em;
+}
+
+.form #feelings {
+	height: 7rem;
+}
+
+.form__btn {
+	height: 7.375rem;
+	background-color: var(--orange-clr);
+	border: none;
+	color: var(--bg-clr);
+	font-family: 'Montserrat';
+	font-weight: 700;
+	font-size: 3rem;
+	height: 1.9em;
+	transition: 0.5s;
+}
+
+.form__btn:hover {
+	cursor: pointer;
+	background-color: var(--light-clr);
+	letter-spacing: 2px;
+}

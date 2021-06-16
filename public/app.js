@@ -69,10 +69,40 @@ const feelingsValidation = (feel) => {
 	}
 };
 
-const fetchData = async (url) => {
+const fetchApiData = async (baseUrl, code, key) => {
+	let url = `${baseUrl}?zip=${code},us&appid=${key}`;
 	const res = await fetch(url);
 	const data = await res.json();
-	console.log(data);
+	try {
+		if (res.status === 404 && !res.ok) {
+			throw data.message;
+		} else {
+			document.querySelector('.title').classList.add('hidden');
+			document
+				.querySelector('.container__col1')
+				.classList.add('container__col1--active');
+			return data;
+		}
+	} catch (error) {
+		console.log('catch', error);
+	}
+};
+
+const postData = async (url = '', data = {}) => {
+	const response = await fetch(url, {
+		method: 'POST',
+		credentials: 'same-origin',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data),
+	});
+	try {
+		const newData = response.json();
+		return newData;
+	} catch (error) {
+		console.log('error', error);
+	}
 };
 
 /*
@@ -87,15 +117,28 @@ generate.addEventListener('click', (e) => {
 		return;
 	} else {
 		overlayToggler();
-		document.querySelector('.title').classList.add('hidden');
-		document
-			.querySelector('.container__col1')
-			.classList.add('container__col1--active');
+
 		zipCode = zipInput.value;
 		feelings = feelingsInput.value;
-		fetchData(
-			`https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=${KEY}`
-		);
+		try {
+			fetchApiData(
+				`https://api.openweathermap.org/data/2.5/weather`,
+				zipCode,
+				KEY
+			)
+				.then((data) => {
+					if (!data) {
+						throw 'Bad Request';
+					}
+					postData('/all', data);
+				})
+				.then((response) => {
+					console.log(response);
+				});
+		} catch (error) {
+			console.log('catch', error);
+		}
+
 		setTimeout(() => {
 			overlayToggler();
 		}, 500);

@@ -11,9 +11,8 @@ const generate = document.querySelector('#generate');
 const zipInput = document.querySelector('#zip');
 const feelingsInput = document.querySelector('#feelings');
 // Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
-
+let date = new Date();
+let newDate = date.getMonth() + '.' + date.getDate() + '.' + date.getFullYear();
 /*
 # ----------------------------<|----------------|>--------------------------- #
 # -----------------------------|HELPER FUNCTIONS|---------------------------- #
@@ -69,8 +68,9 @@ const feelingsValidation = (feel) => {
 	}
 };
 
+// Fetches data from the api.
 const fetchApiData = async (baseUrl, code, key) => {
-	let url = `${baseUrl}?zip=${code},us&appid=${key}`;
+	let url = `${baseUrl}?zip=${code},us&appid=${key}&units=metric`;
 	const res = await fetch(url);
 	const data = await res.json();
 	try {
@@ -84,10 +84,12 @@ const fetchApiData = async (baseUrl, code, key) => {
 			return data;
 		}
 	} catch (error) {
-		console.log('catch', error);
+		// Notify the user about the error.
+		return error;
 	}
 };
 
+// Posts data received from the api alongside the user input to the server.
 const postData = async (url = '', data = {}) => {
 	const response = await fetch(url, {
 		method: 'POST',
@@ -117,27 +119,43 @@ generate.addEventListener('click', (e) => {
 		return;
 	} else {
 		overlayToggler();
-
 		zipCode = zipInput.value;
 		feelings = feelingsInput.value;
-		try {
-			fetchApiData(
-				`https://api.openweathermap.org/data/2.5/weather`,
-				zipCode,
-				KEY
-			)
-				.then((data) => {
-					if (!data) {
-						throw 'Bad Request';
-					}
-					postData('/all', data);
-				})
-				.then((response) => {
-					console.log(response);
-				});
-		} catch (error) {
-			console.log('catch', error);
-		}
+		fetchApiData(
+			`https://api.openweathermap.org/data/2.5/weather`,
+			zipCode,
+			KEY
+		)
+			.then((data) => {
+				if (!data.main) {
+					throw data;
+				} else {
+					return postData('/all', {
+						data,
+						newDate,
+						userInput: { zip: zipCode, feelings: feelings },
+					});
+				}
+			})
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((error) => {
+				const container = document.querySelector('.container');
+				const errorBox = document.querySelector('.api-error');
+				container.classList.toggle('blur');
+				container.style.pointerEvents = 'none';
+				errorBox.classList.toggle('api-error--active');
+				errorBox.querySelector(
+					'.api-error__text'
+				).textContent = `Oops! something went wrong. ${error}`;
+				errorBox
+					.querySelector('.api-error__btn')
+					.addEventListener('click', () => {
+						window.location.reload();
+					});
+				// return;
+			});
 
 		setTimeout(() => {
 			overlayToggler();

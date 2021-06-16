@@ -183,12 +183,6 @@ body {
 	flex-direction: column;
 }
 
-.error {
-	font-family: 'Inconsolata', sans-serif;
-	font-size: 1rem;
-	color: #e02020;
-}
-
 .input {
 	resize: none;
 	border: 1px solid var(--light-clr);
@@ -270,4 +264,30 @@ body {
 	font-weight: 400;
 	font-size: 1.3rem;
 	white-space: nowrap;
+}
+
+/* Errors */
+.error {
+	font-family: 'Inconsolata', sans-serif;
+	font-size: 1rem;
+	color: #e02020;
+}
+
+.api-error {
+	display: none;
+}
+
+.api-error.api-error--active {
+	display: block;
+	width: 50%;
+	height: 20%;
+	background-color: rgb(13 20 28 / 80%);
+	box-shadow: 0 0 20px rgb(0 0 0 / 58%);
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }

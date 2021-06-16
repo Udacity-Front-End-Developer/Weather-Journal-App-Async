@@ -13,9 +13,14 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
+		<!-- An svg in the background -->
 		<span class="cloud">
 			<img src="cloud.png" alt="" />
 		</span>
+		<!-- Overlay & spinner -->
+		<div class="overlay hidden">
+			<div class="spinner hidden"></div>
+		</div>
 		<main class="container">
 			<section class="container__col1">
 				<h1 class="title">
@@ -25,6 +30,12 @@
 					journal<br />
 					app
 				</h1>
+				<div class="card">
+					<span class="day"></span>
+					<span class="date"></span>
+					<span class="temp"></span>
+					<span class="city"></span>
+				</div>
 			</section>
 
 			<section class="container__col2">
@@ -37,6 +48,7 @@
 						type="text"
 						placeholder="Enter zip code here..."
 					/>
+					<span class="error zip-error"></span>
 					<label class="form__label" for="feelings" type="text"
 						>Your <span>feelings</span> today</label
 					>
@@ -47,6 +59,7 @@
 						type="text"
 						placeholder="How are you feeling..."
 					></textarea>
+					<span class="error feelings-error"></span>
 					<button class="form__btn" id="generate" type="submit">
 						Generate
 					</button>

@@ -202,12 +202,12 @@ const updateUi = () => {
 	getData('/all').then((data) => {
 		updateEntryHolder(data);
 		let card = document.querySelector('.card');
-		card.querySelector('.zip').textContent = `zip: ${data.userInput.zip}`;
+		card.querySelector('.zip').innerHTML = `zip: ${data.userInput.zip}`;
 		card.querySelector(
 			'.feel'
 		).textContent = `feelings: ${data.userInput.feelings}`;
-		card.querySelector('.date').textContent = newDate;
-		card.querySelector('.temp').textContent = data.temp;
+		card.querySelector('.date').innerHTML = newDate;
+		card.querySelector('.temp').innerHTML = data.temp;
 	});
 };
 

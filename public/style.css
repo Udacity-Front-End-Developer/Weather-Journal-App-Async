@@ -219,10 +219,45 @@ body {
 	color: #fff;
 	margin-bottom: 0.8em;
 	white-space: nowrap;
+	position: relative;
+	display: flex;
+	align-items: center;
 }
 
 .form__label span {
 	color: var(--orange-clr);
+}
+
+.tool-tip {
+	font-size: 0.8rem;
+	background: var(--light-clr);
+	color: var(--bg-clr) !important;
+	border: 1px solid var(--light-clr);
+	display: inline-block;
+	width: 1.4rem;
+	height: 1.4rem;
+	border-radius: 50%;
+	text-align: center;
+	align-self: center;
+	margin-left: 0.5em;
+	padding-top: 0.2em;
+	position: relative;
+}
+
+.tool-tip::after {
+	content: attr(data-tooltip);
+	display: none;
+	position: absolute;
+	padding: 1em;
+	background: var(--light-clr);
+	bottom: 1.5em;
+	text-align: left;
+	/* width: 2em; */
+	color: var(--bg-clr);
+}
+
+.tool-tip:hover::after {
+	display: block;
 }
 
 .form #zip {

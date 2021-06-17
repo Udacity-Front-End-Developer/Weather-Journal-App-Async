@@ -1,4 +1,4 @@
-const { expect, should } = require('chai');
+const { expect } = require('chai');
 const fetch = require('node-fetch');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
@@ -60,6 +60,5 @@ describe('Server connection', () => {
 						return done();
 					});
 			});
-		// .then(done);
 	});
 });

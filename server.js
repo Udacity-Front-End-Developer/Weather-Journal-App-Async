@@ -28,13 +28,10 @@ app.get('/all', (req, res) => {
 
 app.post('/all', (req, res) => {
 	// Adds incoming data to projectData.
-	console.log(req.body);
-	projectData.temp = req.body.data.main.temp;
+	projectData.temp = Math.ceil(req.body.data.main.temp);
 	projectData.date = req.body.newDate;
 	projectData.userInput = req.body.userInput;
 	res.send(projectData);
-	// projectData.date
-	// res.send(projectData);
 });
 
 app.listen(_PORT, () => console.log(`Server is live on port ${_PORT}`));

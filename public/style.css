@@ -131,41 +131,40 @@ body {
 .container__col1--active .card {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
 	font-family: 'Cantarell';
 	color: #fff;
 	height: 50%;
 	width: 50%;
 	position: relative;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-}
-
-.container__col1--active .card:before {
 	background-color: rgba(0, 0, 0, 20%);
 	backdrop-filter: blur(5px);
-	content: '';
-	height: 100%;
-	position: absolute;
-	width: 100%;
-}
-
-.container__col1--active .card .day {
-	font-weight: 700;
-	font-size: 50px;
 }
 
 .container__col1--active .card .date {
 	font-weight: 400;
-	font-size: 30px;
+	font-size: 1.3em;
 }
 
 .container__col1--active .card .temp {
 	font-weight: 700;
-	font-size: 96px;
+	font-size: 5em;
 }
 
-.container__col1--active .card .city {
+.container__col1--active .card .temp::after {
+	content: '\2103';
+}
+
+.container__col1--active .card .zip {
 	font-weight: 700;
-	font-size: 64px;
+	font-size: 1.3em;
+}
+
+.container__col1--active .card .feel {
+	font-weight: 700;
+	font-size: 1.3em;
 }
 
 .container__col2 {
@@ -264,6 +263,15 @@ body {
 	font-weight: 400;
 	font-size: 1.3rem;
 	white-space: nowrap;
+}
+
+#entryHolder {
+	margin-top: 0.5em;
+}
+
+#entryHolder div {
+	display: inline-block;
+	margin-left: 0.2em;
 }
 
 /* Errors */

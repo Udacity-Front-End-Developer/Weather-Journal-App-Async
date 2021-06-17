@@ -34,4 +34,8 @@ app.post('/all', (req, res) => {
 	res.send(projectData);
 });
 
-app.listen(_PORT, () => console.log(`Server is live on port ${_PORT}`));
+if (require.main === module) {
+	app.listen(_PORT, () => console.log(`Server is live on port ${_PORT}`));
+}
+
+module.exports = app;

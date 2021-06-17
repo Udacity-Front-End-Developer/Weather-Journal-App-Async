@@ -8,7 +8,7 @@
  * The key to openweathermap api.
  * @constant
  */
-const KEY = 'd98ef3246962037e642cfebbc9b82b35';
+const KEY = 'd98ef3246962037e642cfebbc9b82b35'; // Replace this string with your own key.
 const generate = document.querySelector('#generate');
 const zipInput = document.querySelector('#zip');
 const feelingsInput = document.querySelector('#feelings');

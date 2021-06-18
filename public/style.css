@@ -319,8 +319,15 @@ body {
 	display: none;
 }
 
+.api-error__text {
+	font-size: 1.2em;
+	text-align: center;
+}
 .api-error.api-error--active {
-	display: block;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	width: 50%;
 	height: 20%;
 	background-color: rgb(13 20 28 / 80%);
@@ -332,4 +339,17 @@ body {
 	left: 0;
 	right: 0;
 	margin: auto;
+	color: var(--light-clr);
+}
+
+.api-error__btn {
+	border: none;
+	outline: none;
+	background-color: var(--light-clr);
+	color: var(--bg-clr);
+	font-size: 1.3em;
+	font-weight: 700;
+	margin-top: 1em;
+	padding: 0.3em;
+	cursor: pointer;
 }

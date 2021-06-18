@@ -220,8 +220,6 @@ body {
 	margin-bottom: 0.8em;
 	white-space: nowrap;
 	position: relative;
-	display: flex;
-	align-items: center;
 }
 
 .form__label span {
@@ -242,6 +240,7 @@ body {
 	margin-left: 0.5em;
 	padding-top: 0.2em;
 	position: relative;
+	vertical-align: middle;
 }
 
 .tool-tip::after {

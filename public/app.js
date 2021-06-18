@@ -16,7 +16,8 @@ let zipCode;
 let feelings;
 // Create a new date instance dynamically with JS
 let date = new Date();
-let newDate = date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear();
+let newDate =
+	date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
 /*
 # ----------------------------<|----------------|>--------------------------- #
 # -----------------------------|HELPER FUNCTIONS|---------------------------- #

@@ -2,7 +2,7 @@
 
 ## Layout
 
-Responsive design
+~~Responsive design~~
 
 ## Colors
 

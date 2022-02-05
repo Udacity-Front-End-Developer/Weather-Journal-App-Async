@@ -1,6 +1,6 @@
 # Screenshots
 
-![alt text](repo_images/weather_screenshot00png.png)
+![alt text](repo_images/weather_screenshot00.png)
 ![alt text](repo_images/weather_screenshot01.png)
 ![alt text](repo_images/weather_screenshot02.png.png)
 

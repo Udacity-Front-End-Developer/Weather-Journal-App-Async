@@ -1,7 +1,19 @@
 # Weather Journal App with Asynchronous JavaScript
 
-This project is part of Udacity's front end nanodegree course.
-It's an asynchronous web app that uses Web API(openweathermap) and user data to dynamically update the UI in a Weather Journal application.
+The third submitted project for the **Web API's and Asynchronous Applications**
+chapter of the Udacity's Front End Developer nanodegree.
+
+This project required me to create an asynchronous web app that uses Web API
+and user data to dynamically update the UI in a Weather Journal application.
+
+## Rubric
+
+This project has been evaluated by a Udacity code reviewer according to the Weather Journal App project specifications below.
+
+<details>
+<summary>Project specification:</summary>
+<img src="repo_images/weatherApp-specifications.png"/>
+</details>
 
 ## Installation
 
@@ -40,3 +52,6 @@ npm test
 - [Openweathermap's documentation](https://openweathermap.org/current#data)
 - [css-tricks.com](https://css-tricks.com/almanac/properties/b/backdrop-filter/)
 - [tests](https://www.chaijs.com/guide/styles/)
+
+- [x] Project reviewed and passed successfully.
+      ![alt text](repo_images/review.png)
